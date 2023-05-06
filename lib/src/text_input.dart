@@ -58,12 +58,13 @@ class FancyTextInput extends ConsumerWidget {
         SizedBox(
           height: 20,
         ),
-        Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              config!.labelText!,
-              style: TextStyle(),
-            )),
+        if (config!.showLabel)
+          Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                config!.labelText!,
+                style: TextStyle(),
+              )),
         SizedBox(
           height: 5,
         ),
@@ -125,7 +126,9 @@ class FancyTextInput extends ConsumerWidget {
       decoration: InputDecoration(
         // fillColor: Cc.BG_FRONT,
         filled: true,
-        hintText: "Enter ${config!.labelText}",
+        hintText: config!.showCustomLabel
+            ? "${config!.showCustomLabel}"
+            : "Enter ${config!.labelText}",
         // errorText: errorText,
         // labelText: labelText,
         labelStyle: TextStyle(
