@@ -162,7 +162,7 @@ class FancyTextInput extends ConsumerWidget {
             width: 0.5,
           ),
         ),
-        /*prefixIcon: IconTheme(
+        /*prefixIcon: if(widget.icon ) IconTheme(
                 data: IconThemeData(
                   color: Cc.deep_red,
                 ),

@@ -35,6 +35,13 @@ class FancyButton extends StatelessWidget {
           // disabledTextColor: Colors.black,
           // padding: EdgeInsets.all(8.0),
           // splashColor: Colors.blueAccent,
+          style: TextButton.styleFrom(
+              backgroundColor:
+                  backroundColor ?? Theme.of(context).colorScheme.primary,
+              textStyle: TextStyle(
+                color: textColor ?? Colors.black,
+              )),
+
           onPressed: onPressed,
           // shape: RoundedRectangleBorder(
           //   borderRadius: BorderRadius.circular(8),
