@@ -12,6 +12,7 @@ class FancyButton extends StatelessWidget {
 
   dynamic onPressed;
   IconSide iconSide = IconSide.LEFT;
+  double? borderRadius;
 
   FancyButton({
     required this.label,
@@ -21,6 +22,7 @@ class FancyButton extends StatelessWidget {
     this.textColor,
     this.iconSide = IconSide.LEFT,
     this.iconColor,
+    this.borderRadius,
   });
 
   @override
@@ -36,16 +38,19 @@ class FancyButton extends StatelessWidget {
           // padding: EdgeInsets.all(8.0),
           // splashColor: Colors.blueAccent,
           style: TextButton.styleFrom(
-              backgroundColor:
-                  backroundColor ?? Theme.of(context).colorScheme.primary,
-              textStyle: TextStyle(
-                color: textColor ?? Colors.black,
-              )),
+            backgroundColor:
+                backroundColor ?? Theme.of(context).colorScheme.primary,
+            textStyle: TextStyle(
+              color: textColor ?? Colors.black,
+            ),
+            padding: EdgeInsets.all(8.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
+            ),
+          ),
 
           onPressed: onPressed,
-          // shape: RoundedRectangleBorder(
-          //   borderRadius: BorderRadius.circular(8),
-          // ),
+
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -66,7 +71,7 @@ class FancyButton extends StatelessWidget {
               Text(
                 label,
                 style: TextStyle(
-                  // color: Cc.white,
+                  color: textColor ?? Colors.black,
                   fontSize: 20,
                 ),
               ),
